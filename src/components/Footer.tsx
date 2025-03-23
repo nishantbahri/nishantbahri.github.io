@@ -1,12 +1,12 @@
 
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="py-10 border-t border-border/40">
+    <footer className="py-8 border-t border-border/40">
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="mt-8 text-center">
+        <div className="mt-6 text-center">
           <p className="text-sm text-muted-foreground">
             © {currentYear} Nishant Bahri. All rights reserved.
           </p>
