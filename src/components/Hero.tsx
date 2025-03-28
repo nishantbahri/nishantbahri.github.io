@@ -46,7 +46,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg text-foreground/70 mb-8 max-w-lg text-balance">
-              With five years of experience in data engineering, I specialize in processing large volumes of data and building robust, scalable data pipelines on cloud platforms to derive key insights.
+              With six years of experience in data engineering, I specialize in processing large volumes of data and building robust, scalable data pipelines on cloud platforms to derive key insights.
             </p>
             
             <div className="flex flex-wrap items-center gap-4">
@@ -57,7 +57,7 @@ const Hero = () => {
                 </Link>
               </Button>
               <Button variant="outline" className="button-hover rounded-full px-8 py-6 text-lg" asChild>
-                <a href="https://drive.google.com/file/d/1TvqbFV23a9icIWOxcxWgFzUVHtQp5BUf/view?usp=sharing" target="_blank" rel="noopener noreferrer" download>
+                <a href="https://drive.google.com/file/d/1P7EHDFlSRzkM9rQd34nYIU4ohchWMNkC/view?usp=sharing" target="_blank" rel="noopener noreferrer" download>
                   <Download className="mr-2 h-5 w-5" />
                   Resume
                 </a>
