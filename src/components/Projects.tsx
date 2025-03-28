@@ -12,7 +12,14 @@ const experiences = [
     period: "Oct 2022 – Present",
     location: "Gurgaon, India",
     stack: ["Python", "PySpark", "AWS EMR", "EMR Serverless", "Redshift", "Airflow", "Git", "GitHub Actions", "GenAI LLMs"],
-    description: "Working with GoDaddyPro analytics and pricing teams to implement value-based pricing, feature extraction, and KPIs. Built end-to-end data pipelines on AWS, managed 12+ data workflows, and processed over 500TB of data using Spark."
+    description: [
+      "Designed and implemented high-quality, end-to-end data pipelines on AWS cloud platform",
+      "Owned 12+ data pipelines on Airflow with 90% uptime, processing over 500TB of data",
+      "Experimented with GenAI LLMs for feature extraction and data enrichment",
+      "Developed an org-level observability platform for all data pipeline performance and costing",
+      "Created value-based pricing models for GoDaddy Pro platform services",
+      "Built robust monitoring and alerting systems for data quality assurance"
+    ]
   },
   {
     company: "Warner Bros. Discovery",
@@ -20,7 +27,13 @@ const experiences = [
     period: "Oct 2021 – Oct 2022",
     location: "Gurgaon, India",
     stack: ["Scala", "Python", "Spark", "Databricks", "AWS Athena", "EMR", "Airflow", "Git", "GitHub Actions"],
-    description: "Developed data pipelines for EMEA marketing analytics to fetch reviews, ratings, and viewership data. Created multi-layered data lake architecture and KPIs for reporting and ML models."
+    description: [
+      "Developed different layers (bronze, silver, and gold) of the Data Lake",
+      "Created scalable pipelines for marketing, reviews, ratings, and linear and OTT data",
+      "Transformed raw data using Spark Scala/SQL and ingested it into Athena and Delta tables",
+      "Successfully migrated data pipelines from AWS to Databricks",
+      "Optimized slow-running data transformations, reducing processing time by 40%"
+    ]
   },
   {
     company: "Impetus Technologies",
@@ -28,7 +41,13 @@ const experiences = [
     period: "June 2019 – Oct 2021",
     location: "Noida, India",
     stack: ["Python", "AWS Glue", "Palantir Foundry", "Bash", "Spark", "SQL", "Airflow", "Git", "Jenkins"],
-    description: "Worked with a major US airline client to create data signals for flight onboard teams and developed streaming pipelines for baggage data. Implemented CDC and SCD Type 2 logic for data migration projects."
+    description: [
+      "Designed and implemented data ingestion pipelines on Palantir Foundry and AWS cloud platform",
+      "Migrated large data volume tables from SQL Server and Teradata to Palantir Foundry",
+      "Implemented CDC and SCD Type 2 logic, along with validation logic across data pipelines",
+      "Developed testing framework that reduced validation time for data migration projects",
+      "Created real-time alerting system for baggage handling operations"
+    ]
   }
 ];
 
@@ -110,7 +129,11 @@ const Projects = () => {
                   <span className="text-sm text-foreground/60 whitespace-nowrap">{exp.period}</span>
                 </div>
                 
-                <p className="text-foreground/70 mb-4">{exp.description}</p>
+                <ul className="list-disc pl-5 space-y-2 text-foreground/70 mb-4">
+                  {exp.description.map((point, pointIndex) => (
+                    <li key={pointIndex}>{point}</li>
+                  ))}
+                </ul>
                 
                 <div className="flex flex-wrap gap-2">
                   {exp.stack.map((tech, techIndex) => (

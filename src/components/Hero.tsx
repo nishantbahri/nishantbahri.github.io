@@ -56,9 +56,11 @@ const Hero = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button variant="outline" className="button-hover rounded-full px-8 py-6 text-lg">
-                <Download className="mr-2 h-5 w-5" />
-                Resume
+              <Button variant="outline" className="button-hover rounded-full px-8 py-6 text-lg" asChild>
+                <a href="https://drive.google.com/file/d/1TvqbFV23a9icIWOxcxWgFzUVHtQp5BUf/view?usp=sharing" target="_blank" rel="noopener noreferrer" download>
+                  <Download className="mr-2 h-5 w-5" />
+                  Resume
+                </a>
               </Button>
               <Button variant="ghost" className="button-hover rounded-full px-8 py-6 text-lg" asChild>
                 <a href="https://www.linkedin.com/in/nishant-bahri/" target="_blank" rel="noopener noreferrer">

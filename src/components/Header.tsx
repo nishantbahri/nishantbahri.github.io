@@ -1,20 +1,14 @@
 
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
-
-const navItems = [
-  { name: 'Home', path: '/' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' }
-];
+import { Menu, X, Github, Linkedin, Mail, FileText } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   // Handle scroll effect
   useEffect(() => {
@@ -45,25 +39,61 @@ const Header = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex items-center space-x-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className="text-foreground/80 hover:text-foreground transition-colors duration-200"
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link
+              to="/"
+              className={cn(
+                "text-foreground/80 hover:text-foreground transition-colors duration-200",
+                location.pathname === "/" && "text-foreground font-medium"
+              )}
+            >
+              Home
+            </Link>
+            <Link
+              to="/projects"
+              className={cn(
+                "text-foreground/80 hover:text-foreground transition-colors duration-200",
+                location.pathname === "/projects" && "text-foreground font-medium"
+              )}
+            >
+              Projects
+            </Link>
+            <Link
+              to="/about"
+              className={cn(
+                "text-foreground/80 hover:text-foreground transition-colors duration-200",
+                location.pathname === "/about" && "text-foreground font-medium"
+              )}
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className={cn(
+                "text-foreground/80 hover:text-foreground transition-colors duration-200",
+                location.pathname === "/contact" && "text-foreground font-medium"
+              )}
+            >
+              Contact
+            </Link>
           </nav>
           
           <div className="flex items-center space-x-4">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" 
+            <a href="https://github.com/nishantbahri" target="_blank" rel="noopener noreferrer" 
               className="text-foreground/80 hover:text-foreground transition-colors duration-200">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"
+            <a href="https://linkedin.com/in/nishant-bahri" target="_blank" rel="noopener noreferrer"
               className="text-foreground/80 hover:text-foreground transition-colors duration-200">
               <Linkedin className="h-5 w-5" />
+            </a>
+            <a 
+              href="https://drive.google.com/uc?export=download&id=1LFXfZhIlHxB4EEm2NZ-S9g8Mb9jvf1EF" 
+              download="NishantBahri_Resume.pdf"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-foreground/80 hover:text-foreground transition-colors duration-200"
+            >
+              <FileText className="h-5 w-5" />
             </a>
             <Link to="/contact">
               <Button 
@@ -97,25 +127,64 @@ const Header = () => {
         )}
       >
         <nav className="flex flex-col items-center space-y-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className="text-xl text-foreground/80 hover:text-foreground transition-colors duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
+          <Link
+            to="/"
+            className={cn(
+              "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
+              location.pathname === "/" && "text-foreground font-medium"
+            )}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Home
+          </Link>
+          <Link
+            to="/projects"
+            className={cn(
+              "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
+              location.pathname === "/projects" && "text-foreground font-medium"
+            )}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Projects
+          </Link>
+          <Link
+            to="/about"
+            className={cn(
+              "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
+              location.pathname === "/about" && "text-foreground font-medium"
+            )}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            About
+          </Link>
+          <Link
+            to="/contact"
+            className={cn(
+              "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
+              location.pathname === "/contact" && "text-foreground font-medium"
+            )}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
           
           <div className="flex items-center space-x-6 mt-6">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" 
+            <a href="https://github.com/nishantbahri" target="_blank" rel="noopener noreferrer" 
               className="text-foreground/80 hover:text-foreground transition-colors duration-200">
               <Github className="h-6 w-6" />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"
+            <a href="https://linkedin.com/in/nishant-bahri" target="_blank" rel="noopener noreferrer"
               className="text-foreground/80 hover:text-foreground transition-colors duration-200">
               <Linkedin className="h-6 w-6" />
+            </a>
+            <a 
+              href="https://drive.google.com/uc?export=download&id=1LFXfZhIlHxB4EEm2NZ-S9g8Mb9jvf1EF" 
+              download="NishantBahri_Resume.pdf"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-foreground/80 hover:text-foreground transition-colors duration-200"
+            >
+              <FileText className="h-6 w-6" />
             </a>
           </div>
           

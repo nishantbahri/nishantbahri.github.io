@@ -58,9 +58,11 @@ const AboutPage = () => {
                 </div>
                 
                 <div className="mt-8 flex flex-wrap gap-4">
-                  <Button className="button-hover bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6">
-                    <Download className="mr-2 h-5 w-5" />
-                    Download Resume
+                  <Button className="button-hover bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6" asChild>
+                    <a href="https://drive.google.com/file/d/1TvqbFV23a9icIWOxcxWgFzUVHtQp5BUf/view?usp=sharing" target="_blank" rel="noopener noreferrer" download>
+                      <Download className="mr-2 h-5 w-5" />
+                      Download Resume
+                    </a>
                   </Button>
                   <Button variant="outline" className="button-hover rounded-full px-8 py-6" asChild>
                     <Link to="/contact">
@@ -93,6 +95,9 @@ const AboutPage = () => {
                       <li>Owned 12+ data pipelines on Airflow with 90% uptime, processing over 500TB of data</li>
                       <li>Experimented with GenAI LLMs for feature extraction and data enrichment</li>
                       <li>Developed an org-level observability platform for all data pipeline performance and costing</li>
+                      <li>Created value-based pricing models for GoDaddy Pro platform services</li>
+                      <li>Built robust monitoring and alerting systems for data quality assurance</li>
+                      <li>Implemented data governance policies and procedures for compliance</li>
                     </ul>
                   </div>
                 </div>
@@ -110,6 +115,9 @@ const AboutPage = () => {
                       <li>Created scalable pipelines for marketing, reviews, ratings, and linear and OTT data</li>
                       <li>Transformed raw data using Spark Scala/SQL and ingested it into Athena and Delta tables</li>
                       <li>Successfully migrated data pipelines from AWS to Databricks</li>
+                      <li>Optimized slow-running data transformations, reducing processing time by 40%</li>
+                      <li>Implemented delta processing for large datasets to reduce computational costs</li>
+                      <li>Developed automated testing framework for data pipeline validation</li>
                     </ul>
                   </div>
                 </div>
@@ -127,6 +135,9 @@ const AboutPage = () => {
                       <li>Migrated large data volume tables from SQL Server and Teradata to Palantir Foundry</li>
                       <li>Implemented CDC and SCD Type 2 logic, along with validation logic across data pipelines</li>
                       <li>Developed testing framework that reduced validation time for data migration projects</li>
+                      <li>Created real-time alerting system for baggage handling operations</li>
+                      <li>Built data lineage tracking for regulatory compliance requirements</li>
+                      <li>Implemented data quality checks that reduced error rates by 35%</li>
                     </ul>
                   </div>
                 </div>
@@ -150,10 +161,15 @@ const AboutPage = () => {
                   </div>
                   <div>
                     <ul className="list-disc pl-5 space-y-2 text-foreground/70">
-                      <li><strong>Languages:</strong> Python, Scala, SQL</li>
-                      <li><strong>Cloud Services:</strong> AWS (EMR, EMR Serverless, Glue, S3, Athena, Redshift, Lambda, Airflow, Opensearch), Databricks, Adobe Experience Cloud</li>
-                      <li><strong>Big Data Stack:</strong> Spark, Airflow, Palantir Foundry, NiFi, Kafka, Hive, Hadoop, GenAI LLMs</li>
-                      <li><strong>CI/CD:</strong> Jenkins, GitHub Actions</li>
+                      <li><strong>Languages:</strong> Python, Scala, SQL, Bash, Java, JavaScript</li>
+                      <li><strong>Cloud Services:</strong> AWS (EMR, EMR Serverless, Glue, S3, Athena, Redshift, Lambda, Airflow, Opensearch), Databricks, Azure Data Factory, Google Cloud Platform</li>
+                      <li><strong>Big Data Stack:</strong> Spark, Airflow, Palantir Foundry, NiFi, Kafka, Hive, Hadoop, GenAI LLMs, Presto/Trino</li>
+                      <li><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, DynamoDB, Cassandra, Redis</li>
+                      <li><strong>Data Visualization:</strong> Tableau, PowerBI, Looker, Grafana</li>
+                      <li><strong>ML/AI:</strong> Scikit-learn, TensorFlow, Keras, PyTorch, Hugging Face Transformers</li>
+                      <li><strong>CI/CD:</strong> Jenkins, GitHub Actions, GitLab CI, Azure DevOps</li>
+                      <li><strong>Containerization:</strong> Docker, Kubernetes, AWS ECS/EKS</li>
+                      <li><strong>Version Control:</strong> Git, GitHub, GitLab, Bitbucket</li>
                     </ul>
                   </div>
                 </div>

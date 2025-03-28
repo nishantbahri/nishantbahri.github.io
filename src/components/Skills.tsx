@@ -9,20 +9,28 @@ type SkillCategory = {
 
 const skillCategories: SkillCategory[] = [
   {
-    name: "Frontend",
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "SASS"]
+    name: "Languages",
+    skills: ["Python", "Scala", "SQL", "Bash", "Java", "JavaScript", "TypeScript", "R"]
   },
   {
-    name: "Backend",
-    skills: ["Node.js", "Express", "Python", "Django", "PHP", "Laravel", "GraphQL", "REST API"]
+    name: "Cloud Services",
+    skills: ["AWS EMR", "AWS Glue", "S3", "Athena", "Redshift", "Lambda", "Airflow", "Databricks", "Azure Data Factory", "GCP"]
   },
   {
-    name: "Database",
-    skills: ["MongoDB", "PostgreSQL", "MySQL", "Firebase", "Redis", "Supabase"]
+    name: "Big Data",
+    skills: ["Spark", "Airflow", "Palantir Foundry", "NiFi", "Kafka", "Hive", "Hadoop", "GenAI LLMs", "Presto", "Trino"]
+  },
+  {
+    name: "Databases",
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "DynamoDB", "Cassandra", "Redis", "Snowflake"]
+  },
+  {
+    name: "Data Viz",
+    skills: ["Tableau", "PowerBI", "Looker", "Grafana", "Kibana", "Metabase"]
   },
   {
     name: "DevOps",
-    skills: ["Git", "GitHub", "Docker", "CI/CD", "AWS", "Vercel", "Netlify"]
+    skills: ["Git", "GitHub", "GitLab", "Jenkins", "GitHub Actions", "Docker", "Kubernetes", "Terraform"]
   }
 ];
 
@@ -72,7 +80,7 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
             <div 
               key={index}
