@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Github, Linkedin, Mail, FileText } from 'lucide-react';
@@ -9,7 +9,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   // Handle scroll effect
   useEffect(() => {
@@ -20,9 +19,14 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavigation = (path: string) => {
-    navigate(path);
+  const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -35,50 +39,42 @@ const Header = () => {
       )}
     >
       <div className="container flex items-center justify-between">
-        <Link 
-          to="/" 
+        <a 
+          href="#"
           className="text-xl md:text-2xl font-medium tracking-tight transition-opacity hover:opacity-80"
-          onClick={() => setMobileMenuOpen(false)}
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setMobileMenuOpen(false);
+          }}
         >
           <span className="perspective-text">Portfolio</span>
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex items-center space-x-6">
             <button
-              onClick={() => handleNavigation("/")}
-              className={cn(
-                "text-foreground/80 hover:text-foreground transition-colors duration-200",
-                location.pathname === "/" && "text-foreground font-medium"
-              )}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-foreground/80 hover:text-foreground transition-colors duration-200"
             >
               Home
             </button>
             <button
-              onClick={() => handleNavigation("/projects")}
-              className={cn(
-                "text-foreground/80 hover:text-foreground transition-colors duration-200",
-                location.pathname === "/projects" && "text-foreground font-medium"
-              )}
+              onClick={() => scrollToSection('experience')}
+              className="text-foreground/80 hover:text-foreground transition-colors duration-200"
             >
               Projects
             </button>
             <button
-              onClick={() => handleNavigation("/about")}
-              className={cn(
-                "text-foreground/80 hover:text-foreground transition-colors duration-200",
-                location.pathname === "/about" && "text-foreground font-medium"
-              )}
+              onClick={() => scrollToSection('skills')}
+              className="text-foreground/80 hover:text-foreground transition-colors duration-200"
             >
-              About
+              Skills
             </button>
             <button
-              onClick={() => handleNavigation("/contact")}
-              className={cn(
-                "text-foreground/80 hover:text-foreground transition-colors duration-200",
-                location.pathname === "/contact" && "text-foreground font-medium"
-              )}
+              onClick={() => scrollToSection('contact')}
+              className="text-foreground/80 hover:text-foreground transition-colors duration-200"
             >
               Contact
             </button>
@@ -102,7 +98,7 @@ const Header = () => {
             >
               <FileText className="h-5 w-5" />
             </a>
-            <button onClick={() => handleNavigation("/contact")}>
+            <button onClick={() => scrollToSection('contact')}>
               <Button 
                 className="button-hover bg-accent hover:bg-accent/90 text-white rounded-full px-6"
               >
@@ -135,38 +131,29 @@ const Header = () => {
       >
         <nav className="flex flex-col items-center space-y-8">
           <button
-            onClick={() => handleNavigation("/")}
-            className={cn(
-              "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
-              location.pathname === "/" && "text-foreground font-medium"
-            )}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              setMobileMenuOpen(false);
+            }}
+            className="text-xl text-foreground/80 hover:text-foreground transition-colors duration-200"
           >
             Home
           </button>
           <button
-            onClick={() => handleNavigation("/projects")}
-            className={cn(
-              "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
-              location.pathname === "/projects" && "text-foreground font-medium"
-            )}
+            onClick={() => scrollToSection('experience')}
+            className="text-xl text-foreground/80 hover:text-foreground transition-colors duration-200"
           >
             Projects
           </button>
           <button
-            onClick={() => handleNavigation("/about")}
-            className={cn(
-              "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
-              location.pathname === "/about" && "text-foreground font-medium"
-            )}
+            onClick={() => scrollToSection('skills')}
+            className="text-xl text-foreground/80 hover:text-foreground transition-colors duration-200"
           >
-            About
+            Skills
           </button>
           <button
-            onClick={() => handleNavigation("/contact")}
-            className={cn(
-              "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
-              location.pathname === "/contact" && "text-foreground font-medium"
-            )}
+            onClick={() => scrollToSection('contact')}
+            className="text-xl text-foreground/80 hover:text-foreground transition-colors duration-200"
           >
             Contact
           </button>
@@ -191,7 +178,7 @@ const Header = () => {
             </a>
           </div>
           
-          <button onClick={() => handleNavigation("/contact")}>
+          <button onClick={() => scrollToSection('contact')}>
             <Button 
               className="mt-4 button-hover bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-6"
             >
