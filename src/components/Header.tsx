@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Github, Linkedin, Mail, FileText } from 'lucide-react';
@@ -9,6 +9,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Handle scroll effect
   useEffect(() => {
@@ -18,6 +19,11 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header
@@ -32,6 +38,7 @@ const Header = () => {
         <Link 
           to="/" 
           className="text-xl md:text-2xl font-medium tracking-tight transition-opacity hover:opacity-80"
+          onClick={() => setMobileMenuOpen(false)}
         >
           <span className="perspective-text">Portfolio</span>
         </Link>
@@ -39,42 +46,42 @@ const Header = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex items-center space-x-6">
-            <Link
-              to="/"
+            <button
+              onClick={() => handleNavigation("/")}
               className={cn(
                 "text-foreground/80 hover:text-foreground transition-colors duration-200",
                 location.pathname === "/" && "text-foreground font-medium"
               )}
             >
               Home
-            </Link>
-            <Link
-              to="/projects"
+            </button>
+            <button
+              onClick={() => handleNavigation("/projects")}
               className={cn(
                 "text-foreground/80 hover:text-foreground transition-colors duration-200",
                 location.pathname === "/projects" && "text-foreground font-medium"
               )}
             >
               Projects
-            </Link>
-            <Link
-              to="/about"
+            </button>
+            <button
+              onClick={() => handleNavigation("/about")}
               className={cn(
                 "text-foreground/80 hover:text-foreground transition-colors duration-200",
                 location.pathname === "/about" && "text-foreground font-medium"
               )}
             >
               About
-            </Link>
-            <Link
-              to="/contact"
+            </button>
+            <button
+              onClick={() => handleNavigation("/contact")}
               className={cn(
                 "text-foreground/80 hover:text-foreground transition-colors duration-200",
                 location.pathname === "/contact" && "text-foreground font-medium"
               )}
             >
               Contact
-            </Link>
+            </button>
           </nav>
           
           <div className="flex items-center space-x-4">
@@ -95,14 +102,14 @@ const Header = () => {
             >
               <FileText className="h-5 w-5" />
             </a>
-            <Link to="/contact">
+            <button onClick={() => handleNavigation("/contact")}>
               <Button 
                 className="button-hover bg-accent hover:bg-accent/90 text-white rounded-full px-6"
               >
                 <Mail className="h-4 w-4 mr-2" />
                 Contact
               </Button>
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -127,46 +134,42 @@ const Header = () => {
         )}
       >
         <nav className="flex flex-col items-center space-y-8">
-          <Link
-            to="/"
+          <button
+            onClick={() => handleNavigation("/")}
             className={cn(
               "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
               location.pathname === "/" && "text-foreground font-medium"
             )}
-            onClick={() => setMobileMenuOpen(false)}
           >
             Home
-          </Link>
-          <Link
-            to="/projects"
+          </button>
+          <button
+            onClick={() => handleNavigation("/projects")}
             className={cn(
               "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
               location.pathname === "/projects" && "text-foreground font-medium"
             )}
-            onClick={() => setMobileMenuOpen(false)}
           >
             Projects
-          </Link>
-          <Link
-            to="/about"
+          </button>
+          <button
+            onClick={() => handleNavigation("/about")}
             className={cn(
               "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
               location.pathname === "/about" && "text-foreground font-medium"
             )}
-            onClick={() => setMobileMenuOpen(false)}
           >
             About
-          </Link>
-          <Link
-            to="/contact"
+          </button>
+          <button
+            onClick={() => handleNavigation("/contact")}
             className={cn(
               "text-xl text-foreground/80 hover:text-foreground transition-colors duration-200",
               location.pathname === "/contact" && "text-foreground font-medium"
             )}
-            onClick={() => setMobileMenuOpen(false)}
           >
             Contact
-          </Link>
+          </button>
           
           <div className="flex items-center space-x-6 mt-6">
             <a href="https://github.com/nishantbahri" target="_blank" rel="noopener noreferrer" 
@@ -188,14 +191,14 @@ const Header = () => {
             </a>
           </div>
           
-          <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+          <button onClick={() => handleNavigation("/contact")}>
             <Button 
               className="mt-4 button-hover bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-6"
             >
               <Mail className="h-5 w-5 mr-2" />
               Contact Me
             </Button>
-          </Link>
+          </button>
         </nav>
       </div>
     </header>

@@ -93,7 +93,7 @@ const Projects = () => {
             Work <span className="text-gradient">Experience</span>
           </h2>
           <p className="text-lg text-foreground/70 text-balance">
-            Six years of experience building robust data pipelines and platforms across various industries.
+            Five years of experience building robust data pipelines and platforms across various industries.
           </p>
         </div>
 

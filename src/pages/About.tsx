@@ -34,10 +34,12 @@ const AboutPage = () => {
                 <div className="relative">
                   <div className="absolute inset-0 rounded-2xl bg-accent/10 blur-2xl transform translate-x-4 translate-y-4 opacity-50"></div>
                   <div className="glass-panel aspect-[3/4] relative overflow-hidden rounded-2xl">
-                    {/* Replace with your photo */}
-                    <div className="w-full h-full bg-accent/20 flex items-center justify-center">
-                      <span className="text-accent font-medium">Your Photo</span>
-                    </div>
+                    {/* Coding cat image */}
+                    <img 
+                      src="https://images.unsplash.com/photo-1582562124811-c09040d0a901" 
+                      alt="Coding Cat" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               </div>
@@ -59,7 +61,7 @@ const AboutPage = () => {
                 
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Button className="button-hover bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6" asChild>
-                    <a href="https://drive.google.com/file/d/1P7EHDFlSRzkM9rQd34nYIU4ohchWMNkC/view?usp=sharing" target="_blank" rel="noopener noreferrer" download>
+                    <a href="https://drive.google.com/file/d/1TvqbFV23a9icIWOxcxWgFzUVHtQp5BUf/view?usp=sharing" target="_blank" rel="noopener noreferrer" download>
                       <Download className="mr-2 h-5 w-5" />
                       Download Resume
                     </a>
