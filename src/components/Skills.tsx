@@ -1,112 +1,128 @@
+import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Database, Cloud, Cpu, GitBranch } from 'lucide-react';
 
-import { useRef, useEffect } from 'react';
-import { cn } from '@/lib/utils';
-
-type SkillCategory = {
+interface SkillCategory {
   name: string;
+  icon: React.ReactNode;
+  description: string;
   skills: string[];
 }
 
 const skillCategories: SkillCategory[] = [
   {
-    name: "Languages",
-    skills: ["Python", "Scala", "SQL", "Bash", "Java", "JavaScript", "TypeScript", "R"]
+    name: "Languages & Core",
+    icon: <Database className="h-6 w-6" />,
+    description: "Primary programming languages and database technologies",
+    skills: ["Python", "Scala", "SQL", "PySpark"]
   },
   {
-    name: "Cloud Services",
-    skills: ["AWS EMR", "AWS Glue", "S3", "Athena", "Redshift", "Lambda", "Airflow", "Databricks", "Azure Data Factory", "GCP"]
+    name: "Cloud & Infrastructure",
+    icon: <Cloud className="h-6 w-6" />,
+    description: "Cloud platforms and services expertise",
+    skills: [
+      "AWS EMR",
+      "EMR Serverless",
+      "AWS Glue",
+      "S3",
+      "Athena",
+      "Redshift",
+      "Lambda",
+      "Airflow",
+      "Opensearch",
+      "Databricks"
+    ]
   },
   {
-    name: "Big Data",
-    skills: ["Spark", "Airflow", "Palantir Foundry", "NiFi", "Kafka", "Hive", "Hadoop", "GenAI LLMs", "Presto", "Trino"]
+    name: "Big Data & Processing",
+    icon: <Cpu className="h-6 w-6" />,
+    description: "Large-scale data processing technologies",
+    skills: [
+      "Apache Spark",
+      "Apache Airflow",
+      "Palantir Foundry",
+      "Apache NiFi",
+      "Apache Kafka",
+      "Apache Hive",
+      "Hadoop",
+      "GenAI LLMs"
+    ]
   },
   {
-    name: "Databases",
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "DynamoDB", "Cassandra", "Redis", "Snowflake"]
-  },
-  {
-    name: "Data Viz",
-    skills: ["Tableau", "PowerBI", "Looker", "Grafana", "Kibana", "Metabase"]
-  },
-  {
-    name: "DevOps",
-    skills: ["Git", "GitHub", "GitLab", "Jenkins", "GitHub Actions", "Docker", "Kubernetes", "Terraform"]
+    name: "DevOps & Tools",
+    icon: <GitBranch className="h-6 w-6" />,
+    description: "Development and deployment tools",
+    skills: [
+      "Jenkins",
+      "GitHub Actions",
+      "Docker",
+      "Git",
+      "Infrastructure as Code"
+    ]
   }
 ];
 
 const Skills = () => {
-  const categoriesRef = useRef<HTMLDivElement[]>([]);
-  
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-slide-in', 'opacity-100');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersect, observerOptions);
-    
-    categoriesRef.current.forEach(category => {
-      if (category) {
-        category.classList.add('opacity-0');
-        observer.observe(category);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section className="py-24 md:py-32 bg-secondary/50" id="skills">
+    <section id="skills" className="py-20 bg-background">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-            My Skills
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-6 text-balance">
-            Technical <span className="text-gradient">Expertise</span>
-          </h2>
-          <p className="text-lg text-foreground/70 text-balance">
-            Here are the technologies and tools I work with to bring ideas to life.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
-            <div 
-              key={index}
-              ref={el => {
-                if (el) categoriesRef.current[index] = el;
-              }}
-              className="glass-panel p-8 transition-all duration-500"
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <h3 className="text-xl font-medium mb-6 text-gradient">{category.name}</h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <span 
-                    key={skillIndex}
-                    className={cn(
-                      "text-sm font-medium px-3 py-1.5 rounded-full transition-colors",
-                      "bg-accent/10 text-foreground hover:bg-accent hover:text-white"
-                    )}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-5xl mx-auto"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Technical Skills</h2>
+            <p className="text-foreground/70 text-lg">
+              Technologies and tools I use to build scalable data solutions
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {skillCategories.map((category, index) => (
+              <motion.div
+                key={category.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-colors">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="text-primary">
+                        {category.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground">
+                          {category.name}
+                        </h3>
+                        <p className="text-sm text-foreground/70">
+                          {category.description}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map(skill => (
+                        <Badge 
+                          key={skill} 
+                          variant="secondary"
+                          className="bg-primary/10 text-primary hover:bg-primary/20"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

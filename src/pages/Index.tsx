@@ -1,11 +1,26 @@
-
 import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
 
 const Index = () => {
   // Smooth scroll behavior for the whole page
@@ -26,15 +41,35 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Header />
       
-      <main className="flex-grow">
-        <Hero />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
+      <motion.main
+        className="flex-grow"
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
+      >
+        <motion.div variants={fadeInUp}>
+          <Hero />
+        </motion.div>
+        
+        <motion.div variants={fadeInUp}>
+          <Experience />
+        </motion.div>
+        
+        <motion.div variants={fadeInUp}>
+          <Projects />
+        </motion.div>
+        
+        <motion.div variants={fadeInUp}>
+          <Skills />
+        </motion.div>
+        
+        <motion.div variants={fadeInUp}>
+          <Contact />
+        </motion.div>
+      </motion.main>
       
       <Footer />
     </div>
