@@ -90,7 +90,7 @@ const Header = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a 
-              href="https://drive.google.com/uc?export=download&id=1LFXfZhIlHxB4EEm2NZ-S9g8Mb9jvf1EF" 
+              href="https://drive.google.com/file/d/17PoZGNn5BfmQoye96zQPRlk0xEfrVzRY/view?usp=sharing" 
               download="NishantBahri_Resume.pdf"
               target="_blank" 
               rel="noopener noreferrer"
@@ -168,7 +168,7 @@ const Header = () => {
               <Linkedin className="h-6 w-6" />
             </a>
             <a 
-              href="https://drive.google.com/uc?export=download&id=1LFXfZhIlHxB4EEm2NZ-S9g8Mb9jvf1EF" 
+              href="https://drive.google.com/file/d/17PoZGNn5BfmQoye96zQPRlk0xEfrVzRY/view?usp=sharing" 
               download="NishantBahri_Resume.pdf"
               target="_blank" 
               rel="noopener noreferrer"
