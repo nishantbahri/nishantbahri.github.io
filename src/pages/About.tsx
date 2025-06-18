@@ -61,7 +61,7 @@ const AboutPage = () => {
                 
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Button className="button-hover bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6" asChild>
-                    <a href="https://drive.google.com/file/d/1TvqbFV23a9icIWOxcxWgFzUVHtQp5BUf/view?usp=sharing" target="_blank" rel="noopener noreferrer" download>
+                    <a href="https://drive.google.com/file/d/17PoZGNn5BfmQoye96zQPRlk0xEfrVzRY/view?usp=drive_link" target="_blank" rel="noopener noreferrer" download>
                       <Download className="mr-2 h-5 w-5" />
                       Download Resume
                     </a>
