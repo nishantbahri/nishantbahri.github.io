@@ -27,7 +27,7 @@ const Index = () => {
   useEffect(() => {
     // Reset scroll position on page load
     window.scrollTo(0, 0);
-    
+
     // Check if the URL contains a hash and scroll to that element
     if (window.location.hash) {
       const id = window.location.hash.substring(1);
@@ -43,7 +43,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Header />
-      
+
       <motion.main
         className="flex-grow"
         variants={staggerContainer}
@@ -53,24 +53,24 @@ const Index = () => {
         <motion.div variants={fadeInUp}>
           <Hero />
         </motion.div>
-        
+
         <motion.div variants={fadeInUp}>
           <Experience />
         </motion.div>
-        
+
         <motion.div variants={fadeInUp}>
           <Projects />
         </motion.div>
-        
+
         <motion.div variants={fadeInUp}>
           <Skills />
         </motion.div>
-        
+
         <motion.div variants={fadeInUp}>
           <Contact />
         </motion.div>
       </motion.main>
-      
+
       <Footer />
     </div>
   );

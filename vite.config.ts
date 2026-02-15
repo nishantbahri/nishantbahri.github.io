@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
   // For username.github.io repos, use "/"
   base: "./",
   server: {
-    host: "::",
+    host: "localhost",
     port: 8080,
   },
   plugins: [

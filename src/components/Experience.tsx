@@ -1,68 +1,12 @@
 import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
-interface Experience {
-  company: string;
-  role: string;
-  period: string;
-  location: string;
-  technologies: string[];
-  responsibilities: string[];
-}
-
-const experiences: Experience[] = [
-  {
-    company: "GoDaddy",
-    role: "Senior Data Engineer",
-    period: "Oct 2022 – Present",
-    location: "Gurgaon, India",
-    technologies: ["Python", "PySpark", "Redshift", "EMR", "Airflow", "Github Actions", "Sagemaker"],
-    responsibilities: [
-      "Leading data platform initiatives for GoDaddyPro analytics and pricing teams",
-      "Designed and implemented 12+ high-quality data pipelines with 90% uptime",
-      "Processed 500TB+ data using Spark on EMR clusters and EMR Serverless",
-      "Developed simulation tools and guardrail mechanisms for pricing optimization",
-      "Created org-level observability platform for data pipeline monitoring",
-      "Saved $1,000+ monthly through infrastructure optimization",
-      "Implemented Infrastructure as Code using AWS Service Catalog"
-    ]
-  },
-  {
-    company: "Warner Bros. Discovery",
-    role: "Data Engineer",
-    period: "Oct 2021 – Oct 2022",
-    location: "Gurgaon, India",
-    technologies: ["Scala", "Python", "Spark", "Databricks", "Athena", "EMR", "Airflow"],
-    responsibilities: [
-      "Led EMEA marketing analytics data initiatives",
-      "Built data pipelines for reviews, ratings, and viewership analytics",
-      "Developed multi-layer Data Lake architecture (bronze, silver, gold)",
-      "Created KPIs for reporting and machine learning models",
-      "Successfully migrated critical pipelines from AWS to Databricks",
-      "Implemented data quality checks and monitoring systems"
-    ]
-  },
-  {
-    company: "Impetus Technologies",
-    role: "Data Engineer",
-    period: "June 2019 – Oct 2021",
-    location: "Noida, India",
-    technologies: ["Python", "AWS Glue", "Palantir Foundry", "Spark", "SQL", "Airflow"],
-    responsibilities: [
-      "Built data pipelines for major US airline client",
-      "Designed and implemented data signals for flight operations",
-      "Led data migration from legacy systems to Palantir Foundry",
-      "Implemented CDC and SCD Type 2 logic for data warehousing",
-      "Developed automated testing framework reducing validation time by 60%"
-    ]
-  }
-];
+import { experiences } from '@/data/experience';
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-background">
-      <div className="container">
+    <section id="experience" className="py-20 relative overflow-hidden">
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,60 +14,71 @@ const Experience = () => {
           transition={{ duration: 0.5 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Professional Experience</h2>
-            <p className="text-foreground/90 text-lg">
-              Building and scaling data solutions at industry-leading companies
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-gradient">Professional Experience</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Building and scaling data platforms across e-commerce, domains, media, and travel
             </p>
           </div>
-          
+
           <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.company}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="bg-card shadow-lg border-border">
-                  <CardHeader className="space-y-4">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                      <div>
-                        <CardTitle className="text-xl font-bold text-foreground">
-                          {exp.company}
-                        </CardTitle>
-                        <CardDescription className="text-foreground/90 text-base mt-1">
-                          {exp.role}
-                        </CardDescription>
+            {experiences.map((exp, index) => {
+              const isCurrent = exp.period.includes('Present');
+              return (
+                <motion.div
+                  key={exp.company}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="glass-card border-none">
+                    <CardHeader className="space-y-4">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div>
+                          <CardTitle className="text-2xl font-bold text-white">
+                            {exp.company}
+                          </CardTitle>
+                          <CardDescription className="text-gray-300 text-lg mt-1 font-medium">
+                            {exp.role}
+                          </CardDescription>
+                        </div>
+                        <div className="text-right md:text-right text-left">
+                          <div className="text-base font-semibold text-blue-400">{exp.period}</div>
+                          <div className="text-sm text-gray-400">{exp.location}</div>
+                          {isCurrent && (
+                            <Badge className="mt-2 bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
+                              Current
+                            </Badge>
+                          )}
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-sm font-medium text-foreground/90">{exp.period}</div>
-                        <div className="text-sm text-foreground/80">{exp.location}</div>
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {exp.technologies.map(tech => (
+                          <Badge
+                            key={tech}
+                            variant="secondary"
+                            className="bg-blue-500/10 text-blue-300 border border-blue-500/20"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
                       </div>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map(tech => (
-                        <Badge 
-                          key={tech} 
-                          variant="secondary" 
-                          className="bg-primary/10 text-primary hover:bg-primary/20 font-medium"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-foreground/90 list-disc list-inside">
-                      {exp.responsibilities.map((resp, i) => (
-                        <li key={i} className="text-sm leading-relaxed">{resp}</li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-3 text-gray-300 list-none">
+                        {exp.responsibilities.map((resp, i) => (
+                          <li key={i} className="text-base leading-relaxed flex items-start gap-2">
+                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                            {resp}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </div>
@@ -131,4 +86,4 @@ const Experience = () => {
   );
 };
 
-export default Experience; 
+export default Experience;

@@ -65,8 +65,8 @@ const skillCategories: SkillCategory[] = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-background">
-      <div className="container">
+    <section id="skills" className="py-20 relative overflow-hidden">
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,13 +74,13 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Technical Skills</h2>
-            <p className="text-foreground/70 text-lg">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-gradient">Technical Skills</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Technologies and tools I use to build scalable data solutions
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, index) => (
               <motion.div
@@ -90,28 +90,28 @@ const Skills = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="h-full bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-colors">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="text-primary">
+                <Card className="h-full glass-card border-none hover:bg-white/10 transition-all duration-300 group">
+                  <CardContent className="p-8">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
                         {category.icon}
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground">
+                        <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
                           {category.name}
                         </h3>
-                        <p className="text-sm text-foreground/70">
+                        <p className="text-sm text-gray-400">
                           {category.description}
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map(skill => (
-                        <Badge 
-                          key={skill} 
+                        <Badge
+                          key={skill}
                           variant="secondary"
-                          className="bg-primary/10 text-primary hover:bg-primary/20"
+                          className="bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/5 transition-all"
                         >
                           {skill}
                         </Badge>

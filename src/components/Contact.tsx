@@ -1,80 +1,90 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Mail, Linkedin, Github, MapPin } from 'lucide-react';
+import { Mail, Linkedin, Github, MapPin, BookOpen, Newspaper, FileText } from 'lucide-react';
+
+const RESUME_URL = 'https://drive.google.com/file/d/1QA4K-CmWLUm7U_Sq6yiCXl6hq19ORX1p/view';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-background/50">
-      <div className="container">
+    <section id="contact" className="py-20 relative overflow-hidden">
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl font-bold mb-4 text-foreground">Get in Touch</h2>
-          <p className="text-foreground/70 text-lg mb-8">
-            I'm always open to discussing new opportunities and interesting projects
+          <h2 className="text-4xl font-bold mb-6 text-gradient">Get in Touch</h2>
+          <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
+            Open to high-impact data engineering opportunities and collaborative projects
           </p>
 
-          <Card className="bg-card/50 backdrop-blur-sm border border-border/50">
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <div className="text-left">
-                      <h3 className="font-medium text-foreground">Location</h3>
-                      <p className="text-sm text-foreground/70">Delhi, India</p>
+          <Card className="glass-card border-none">
+            <CardContent className="p-8 md:p-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="space-y-8 text-left">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-full bg-blue-500/10 text-blue-400">
+                      <MapPin className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white text-lg mb-1">Location</h3>
+                      <p className="text-gray-400">Berlin, Germany</p>
                     </div>
                   </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-primary" />
-                    <div className="text-left">
-                      <h3 className="font-medium text-foreground">Email</h3>
-                      <a 
-                        href="mailto:nishant.bahri@gmail.com"
-                        className="text-sm text-foreground/70 hover:text-primary transition-colors"
+
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-full bg-blue-500/10 text-blue-400">
+                      <Mail className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white text-lg mb-1">Email</h3>
+                      <a
+                        href="mailto:nishantbahri08@gmail.com"
+                        className="text-gray-400"
                       >
-                        nishant.bahri@gmail.com
+                        nishantbahri08@gmail.com
                       </a>
                     </div>
                   </div>
+
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start gap-4 h-14 bg-white/5 border-white/10 text-gray-300"
+                    asChild
+                  >
+                    <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+                      <FileText className="h-5 w-5" />
+                      View Resume
+                    </a>
+                  </Button>
                 </div>
 
                 <div className="space-y-4">
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start gap-2"
-                    asChild
-                  >
-                    <a 
-                      href="https://www.linkedin.com/in/nishant-bahri/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {[
+                    { icon: Linkedin, label: "Connect on LinkedIn", href: "https://www.linkedin.com/in/nishant-bahri/" },
+                    { icon: Github, label: "Follow on GitHub", href: "https://github.com/nishantbahri" },
+                    { icon: BookOpen, label: "Read on Medium", href: "https://medium.com/@nishantbahri" },
+                    { icon: Newspaper, label: "Subscribe on Substack", href: "https://substack.com/@nishantbahri" }
+                  ].map((social, index) => (
+                    <Button
+                      key={index}
+                      variant="outline"
+                      className="w-full justify-start gap-4 h-14 bg-white/5 border-white/10 text-gray-300"
+                      asChild
                     >
-                      <Linkedin className="h-5 w-5" />
-                      Connect on LinkedIn
-                    </a>
-                  </Button>
-
-                  <Button 
-                    variant="outline"
-                    className="w-full justify-start gap-2"
-                    asChild
-                  >
-                    <a 
-                      href="https://github.com/nishantbahri"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github className="h-5 w-5" />
-                      Follow on GitHub
-                    </a>
-                  </Button>
+                      <a
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <social.icon className="h-5 w-5" />
+                        {social.label}
+                      </a>
+                    </Button>
+                  ))}
                 </div>
               </div>
             </CardContent>

@@ -60,13 +60,13 @@ const AboutPage = () => {
                 </div>
                 
                 <div className="mt-8 flex flex-wrap gap-4">
-                  <Button className="button-hover bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6" asChild>
-                    <a href="https://drive.google.com/file/d/1TvqbFV23a9icIWOxcxWgFzUVHtQp5BUf/view?usp=sharing" target="_blank" rel="noopener noreferrer" download>
+                  <Button className="bg-primary text-white rounded-full px-8 py-6" asChild>
+                    <a href="https://drive.google.com/file/d/1QA4K-CmWLUm7U_Sq6yiCXl6hq19ORX1p/view" target="_blank" rel="noopener noreferrer">
                       <Download className="mr-2 h-5 w-5" />
-                      Download Resume
+                      View Resume
                     </a>
                   </Button>
-                  <Button variant="outline" className="button-hover rounded-full px-8 py-6" asChild>
+                  <Button variant="outline" className="rounded-full px-8 py-6" asChild>
                     <Link to="/contact">
                       <Mail className="mr-2 h-5 w-5" />
                       Contact Me
@@ -87,23 +87,39 @@ const AboutPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-6">
                   <div>
                     <h3 className="text-xl font-medium">Senior Data Engineer</h3>
-                    <p className="text-accent">GoDaddy</p>
-                    <p className="text-sm text-foreground/60">Oct 2022 - Present</p>
+                    <p className="text-accent">Zalando</p>
+                    <p className="text-sm text-foreground/60">Aug 2024 - Present</p>
                   </div>
                   <div>
-                    <p className="mb-4">Working with the GoDaddyPro analytics and pricing teams to set up value-based pricing campaigns, feature extraction, and KPIs for reporting.</p>
+                    <p className="mb-4">Leading data engineering initiatives for analytics and data platform use cases in fashion e-commerce.</p>
                     <ul className="list-disc pl-5 space-y-2 text-foreground/70">
-                      <li>Designed and implemented high-quality, end-to-end data pipelines on AWS cloud platform</li>
-                      <li>Owned 12+ data pipelines on Airflow with 90% uptime, processing over 500TB of data</li>
-                      <li>Experimented with GenAI LLMs for feature extraction and data enrichment</li>
-                      <li>Developed an org-level observability platform for all data pipeline performance and costing</li>
-                      <li>Created value-based pricing models for GoDaddy Pro platform services</li>
-                      <li>Built robust monitoring and alerting systems for data quality assurance</li>
-                      <li>Implemented data governance policies and procedures for compliance</li>
+                      <li>Built and scaled analytics data pipelines using Python, Spark, and Databricks</li>
+                      <li>Improved platform reliability with SLA ownership, data quality checks, and monitoring</li>
+                      <li>Collaborated with analytics and product teams to deliver trusted datasets faster</li>
+                      <li>Drove performance and cost improvements across orchestration and compute workloads</li>
                     </ul>
                   </div>
                 </div>
-                
+
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-6">
+                  <div>
+                    <h3 className="text-xl font-medium">Senior Data Engineer</h3>
+                    <p className="text-accent">GoDaddy</p>
+                    <p className="text-sm text-foreground/60">Oct 2022 - Jul 2024</p>
+                  </div>
+                  <div>
+                    <p className="mb-4">Worked with GoDaddyPro analytics and pricing teams to support value-based pricing and reporting KPIs.</p>
+                    <ul className="list-disc pl-5 space-y-2 text-foreground/70">
+                      <li>Designed and implemented 12+ production data pipelines</li>
+                      <li>Processed 500TB+ data using Spark on EMR and EMR Serverless</li>
+                      <li>Developed simulation tools and guardrails for pricing optimization</li>
+                      <li>Built an org-level observability platform for pipeline monitoring and cost visibility</li>
+                      <li>Saved $1,000+ per month through infrastructure optimization</li>
+                      <li>Implemented Infrastructure as Code using AWS Service Catalog</li>
+                    </ul>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-6">
                   <div>
                     <h3 className="text-xl font-medium">Data Engineer</h3>
@@ -111,35 +127,30 @@ const AboutPage = () => {
                     <p className="text-sm text-foreground/60">Oct 2021 - Oct 2022</p>
                   </div>
                   <div>
-                    <p className="mb-4">Part of the EMEA marketing analytics team. Developed data pipelines that efficiently fetched reviews, ratings, and viewership data.</p>
+                    <p className="mb-4">Part of the EMEA marketing analytics team, building scalable pipelines for reviews, ratings, and viewership data.</p>
                     <ul className="list-disc pl-5 space-y-2 text-foreground/70">
-                      <li>Developed different layers (bronze, silver, and gold) of the Data Lake</li>
-                      <li>Created scalable pipelines for marketing, reviews, ratings, and linear and OTT data</li>
-                      <li>Transformed raw data using Spark Scala/SQL and ingested it into Athena and Delta tables</li>
-                      <li>Successfully migrated data pipelines from AWS to Databricks</li>
-                      <li>Optimized slow-running data transformations, reducing processing time by 40%</li>
-                      <li>Implemented delta processing for large datasets to reduce computational costs</li>
-                      <li>Developed automated testing framework for data pipeline validation</li>
+                      <li>Developed bronze, silver, and gold layers in the data lake</li>
+                      <li>Built scalable pipelines for marketing and OTT analytics data</li>
+                      <li>Transformed raw data with Spark Scala/SQL and delivered Athena and Delta datasets</li>
+                      <li>Migrated critical data pipelines from AWS to Databricks</li>
+                      <li>Implemented data quality checks and monitoring for production stability</li>
                     </ul>
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-6">
                   <div>
                     <h3 className="text-xl font-medium">Data Engineer</h3>
                     <p className="text-accent">Impetus Technologies</p>
-                    <p className="text-sm text-foreground/60">June 2019 - Oct 2021</p>
+                    <p className="text-sm text-foreground/60">Jun 2019 - Oct 2021</p>
                   </div>
                   <div>
-                    <p className="mb-4">Worked with a major US airline client to create various data signals consumed by the flight onboard team and developed structured streaming pipelines for baggage data.</p>
+                    <p className="mb-4">Worked with a major US airline client to build data signals and migration workflows for operational analytics.</p>
                     <ul className="list-disc pl-5 space-y-2 text-foreground/70">
-                      <li>Designed and implemented data ingestion pipelines on Palantir Foundry and AWS cloud platform</li>
-                      <li>Migrated large data volume tables from SQL Server and Teradata to Palantir Foundry</li>
-                      <li>Implemented CDC and SCD Type 2 logic, along with validation logic across data pipelines</li>
-                      <li>Developed testing framework that reduced validation time for data migration projects</li>
-                      <li>Created real-time alerting system for baggage handling operations</li>
-                      <li>Built data lineage tracking for regulatory compliance requirements</li>
-                      <li>Implemented data quality checks that reduced error rates by 35%</li>
+                      <li>Built ingestion and transformation pipelines on AWS and Palantir Foundry</li>
+                      <li>Migrated legacy datasets from SQL Server and Teradata to modern data platforms</li>
+                      <li>Implemented CDC and SCD Type 2 logic for warehouse-style history tracking</li>
+                      <li>Created automated validation checks that reduced migration verification effort</li>
                     </ul>
                   </div>
                 </div>
@@ -170,7 +181,8 @@ const AboutPage = () => {
                       <li><strong>Data Visualization:</strong> Tableau, PowerBI, Looker, Grafana</li>
                       <li><strong>ML/AI:</strong> Scikit-learn, TensorFlow, Keras, PyTorch, Hugging Face Transformers</li>
                       <li><strong>CI/CD:</strong> Jenkins, GitHub Actions, GitLab CI, Azure DevOps</li>
-                      <li><strong>Containerization:</strong> Docker, Kubernetes, AWS ECS/EKS</li>
+                      <li><strong>Containerization:</strong> Docker, AWS ECS/EKS</li>
+                      <li><strong>Transformation:</strong> dbt</li>
                       <li><strong>Version Control:</strong> Git, GitHub, GitLab, Bitbucket</li>
                     </ul>
                   </div>
