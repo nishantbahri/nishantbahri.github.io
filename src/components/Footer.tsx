@@ -15,15 +15,17 @@ const Footer = () => {
   return (
     <footer className="animate pt-16 pb-12">
       <div className="mx-auto max-w-screen-sm px-5">
-        <div className="flex justify-end pb-6">
-          <button
-            onClick={scrollToTop}
-            className="relative group w-fit flex items-center gap-2 pl-3 pr-4 py-1.5 rounded border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out text-sm"
-            aria-label="Back to top"
-          >
-            <ArrowUp className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
-            <span>Back to top</span>
-          </button>
+        <div className="relative mb-12">
+          <div className="absolute right-0 -top-6">
+            <button
+              onClick={scrollToTop}
+              className="relative group w-fit flex items-center gap-2 pl-3 pr-4 py-1.5 rounded border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out text-sm"
+              aria-label="Back to top"
+            >
+              <ArrowUp className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
+              <span>Back to top</span>
+            </button>
+          </div>
         </div>
 
         <div className="flex justify-between items-center text-sm text-neutral-600 dark:text-neutral-400 border-t border-black/10 dark:border-white/10 pt-6">
