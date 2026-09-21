@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Terminal } from 'lucide-react';
 
 const Header = () => {
   return (
@@ -7,9 +8,10 @@ const Header = () => {
         <div className="flex flex-wrap gap-y-2 justify-between items-center">
           <Link
             to="/"
-            className="font-semibold text-black dark:text-white hover:opacity-80 transition-opacity"
+            className="font-semibold text-black dark:text-white hover:opacity-80 transition-opacity inline-flex items-center gap-2"
           >
-            Nishant Bahri
+            <Terminal className="w-4 h-4 text-black dark:text-white" />
+            <span>Nishant Bahri</span>
           </Link>
           <nav className="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400">
             <Link to="/blog" className="jrzs-link">
