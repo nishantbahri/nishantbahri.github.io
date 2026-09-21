@@ -10,7 +10,7 @@ export interface Experience {
 export const experiences: Experience[] = [
     {
         company: "Zalando",
-        role: "Senior Data Engineer",
+        role: "Data Engineer",
         period: "Aug 2024 – Present",
         location: "Berlin, Germany",
         technologies: ["Python", "PySpark", "Databricks", "Airflow", "AWS", "dbt"],

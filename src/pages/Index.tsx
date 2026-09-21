@@ -1,75 +1,30 @@
-import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Experience from '@/components/Experience';
-import Projects from '@/components/Projects';
-import Skills from '@/components/Skills';
-import Contact from '@/components/Contact';
+import BlogSection from '@/components/BlogSection';
+import WorkSection from '@/components/WorkSection';
+import ProjectsSection from '@/components/ProjectsSection';
+import SkillsSection from '@/components/SkillsSection';
+import ConnectSection from '@/components/ConnectSection';
 import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
+import { useAnimateOnLoad } from '@/hooks/useAnimateOnLoad';
 
 const Index = () => {
-  // Smooth scroll behavior for the whole page
-  useEffect(() => {
-    // Reset scroll position on page load
-    window.scrollTo(0, 0);
-
-    // Check if the URL contains a hash and scroll to that element
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      const element = document.getElementById(id);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
-  }, []);
+  useAnimateOnLoad();
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Header />
 
-      <motion.main
-        className="flex-grow"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
-      >
-        <motion.div variants={fadeInUp}>
+      <main className="flex-grow">
+        <div className="mx-auto max-w-screen-sm px-5 py-6 space-y-16">
           <Hero />
-        </motion.div>
-
-        <motion.div variants={fadeInUp}>
-          <Experience />
-        </motion.div>
-
-        <motion.div variants={fadeInUp}>
-          <Projects />
-        </motion.div>
-
-        <motion.div variants={fadeInUp}>
-          <Skills />
-        </motion.div>
-
-        <motion.div variants={fadeInUp}>
-          <Contact />
-        </motion.div>
-      </motion.main>
+          <BlogSection limit={3} showLink={true} />
+          <WorkSection showLink={true} />
+          <ProjectsSection limit={3} showLink={true} />
+          <SkillsSection />
+          <ConnectSection />
+        </div>
+      </main>
 
       <Footer />
     </div>
